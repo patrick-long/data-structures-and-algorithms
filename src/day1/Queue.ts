@@ -4,7 +4,7 @@
 	Time Complexity:
 		- enqueue: O(1)
 		- dequeue: O(1)
-		- peek: O(n)
+		- peek: O(1)
 */
 
 type Node<T> = {
