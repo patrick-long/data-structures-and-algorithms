@@ -12,6 +12,9 @@
 	if value is smaller than midpoint, then hi should now equal midpoint
 
 	while lo is less than hi, recursively call function with new parameters
+
+
+  Time Complexity: O(log n)
 */
 
 export default function bs_list(haystack: number[], needle: number): boolean {
