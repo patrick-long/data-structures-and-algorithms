@@ -2,6 +2,10 @@
 	Heap Condition: 
 		- minHeap: every node below starting node is <=
 		- maxHeap: every node below starting node is >=
+
+  Time Complexity:
+    - insert: O(log(n))
+    - delete: O(log(n))
 */
 
 export default class MinHeap {
