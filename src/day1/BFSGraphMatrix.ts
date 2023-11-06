@@ -40,5 +40,43 @@
 export default function bfs(
   graph: WeightedAdjacencyMatrix,
   source: number,
-  needle: number,
-): number[] | null {}
+  needle: number
+): number[] | null {
+  const seen = new Array(graph.length).fill(false);
+  const prev = new Array(graph.length).fill(-1);
+
+  seen[source] = true;
+  const queue: number[] = [source];
+
+  while (queue.length) {
+    const curr = queue.shift() as number;
+
+    if (curr === needle) {
+      break;
+    }
+
+    const adjacencies = graph[curr];
+
+    for (let i = 0; i < graph.length; i++) {
+      if (adjacencies[i] === 0 || seen[i]) {
+        continue;
+      }
+
+      seen[i] = true;
+      prev[i] = curr;
+      queue.push(i);
+    }
+
+    seen[curr] = true;
+  }
+
+  let curr = needle;
+  const out: number[] = [];
+
+  while (prev[curr] !== -1) {
+    out.push(curr);
+    curr = prev[curr];
+  }
+
+  return out.length ? [source].concat(out.reverse()) : null;
+}
